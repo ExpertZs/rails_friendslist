@@ -1,27 +1,25 @@
-<div id="<%= dom_id friend %>">
+<div class="container">
+  <div class="bg-info text-white p-5 my-3">
+    <div id="<%= dom_id friend %>">
   <p>
-    <strong>First name:</strong>
-    <%= friend.first_name %>
+    <%= friend.first_name %> <%= friend.last_name %>
+  </p>
+
+
+  <p>
+    <%= friend.email %>s
   </p>
 
   <p>
-    <strong>Last name:</strong>
-    <%= friend.last_name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= friend.email %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
     <%= friend.phone %>
   </p>
 
   <p>
-    <strong>Facebook:</strong>
     <%= friend.facebook %>
   </p>
 
 </div>
+  </div>
+</div>
+
+
