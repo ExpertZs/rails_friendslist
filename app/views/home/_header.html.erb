@@ -12,9 +12,31 @@
         <li class="nav-item">
           <%= link_to 'Show Friends' , friends_path, class:"navbar-brand"%>
         </li>
-        <li class="nav-item">
-           <%= link_to 'Add Friend' , new_friend_path, class:"navbar-brand"%>
-        </li>
+
+        
+
+        <% if user_signed_in? %>
+            <li class="nav-item">
+               <%= link_to 'Add Friend' , new_friend_path, class:"navbar-brand"%>
+            </li>
+            
+            <li class="nav-item">
+          <%= link_to 'Sign out' , destroy_user_session_path, method: :delete, class:"navbar-brand"%>
+          </li>
+          <li class="nav-item">
+             <%= link_to 'Edit User' , edit_user_registration_path, class:"navbar-brand"%>
+          </li>
+        <% else %>  
+
+            <li class="nav-item">
+              <%= link_to 'Sign Up' , new_user_registration_path, class:"navbar-brand"%>
+            </li>
+            <li class="nav-item">
+               <%= link_to 'Sign In' , new_user_session_path, class:"navbar-brand"%>
+            </li>
+        <% end %>      
+       
+        
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>

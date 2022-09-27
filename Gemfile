@@ -18,6 +18,8 @@ gem "puma", "~> 5.0"
 
 gem "importmap-rails"
 
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
