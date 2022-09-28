@@ -4,28 +4,31 @@
 <table class="table table-striped table-bordered table-hover" >
   <thead class="table-dark">
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
+      <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Facebook</th>
-      <th colspan="3" style="text-align: center;">Action</th>
+      <th>User Id</th>
+      <th colspan="2" style="text-align: center;">Action</th>
     </tr>
   </thead>
   <tbody>
     <% @friends.each do |friend| %>
+      <% if friend.user ==current_user %>
     <tr>
-      <td> <%= friend.first_name %></td>
-      <td> <%= friend.last_name %></td>
+      <td><%= link_to friend.first_name + ' ' + friend.last_name , friend %></td>      
       <td> <%= friend.email %></td>
       <td> <%= friend.phone %></td>
       <td> <%= friend.facebook %></td>
-      <td><%= link_to "Show", friend %></td>
-      <td><%= link_to "Edit", edit_friend_path(friend) %></td>
-      <td><%= link_to 'destroy', friend, data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
+      <td> <%= friend.user_id %></td>
+      
+      <td style="text-align: center;"><%= link_to "Edit", edit_friend_path(friend), class: "btn btn-outline-primary" %></td>
+      <td style="text-align: center;"><%= link_to 'Delete', friend, data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %></td>
 
     </tr>
+      <% end %>
     <% end %>
+
   </tbody>
 </table>
 <br>
